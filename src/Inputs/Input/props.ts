@@ -5,6 +5,7 @@ const inputTypes = [
   "password",
   "search",
   "tel",
+  "money",
 ] as const;
 type IInputInputType = (typeof inputTypes)[number];
 

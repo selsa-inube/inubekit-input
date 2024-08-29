@@ -1,17 +1,17 @@
 import { JSX } from "react/jsx-runtime";
-import { INumberField } from "..";
-import { NumberFieldController } from "./Numberfield.Controller";
+import { NumberfieldController } from "./Numberfield.Controller";
 import { parameters, props } from "../../Input/props";
+import { IInput } from "../../Input";
 
 const story = {
   title: "Inputs/NumberField",
-  component: NumberFieldController,
+  component: NumberfieldController,
   argTypes: props,
   parameters,
 };
 
-const Default = (args: JSX.IntrinsicAttributes & INumberField) => (
-  <NumberFieldController {...args} />
+const Default = (args: JSX.IntrinsicAttributes & IInput) => (
+  <NumberfieldController {...args} />
 );
 
 Default.args = {
@@ -21,6 +21,7 @@ Default.args = {
   label: "Quantity",
   placeholder: "Enter a number",
   required: true,
+  type: "number",
   size: "wide",
   status: "pending",
 };

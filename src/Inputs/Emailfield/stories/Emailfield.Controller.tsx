@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { EmailField, IEmailField } from "..";
+import { IInput, Input } from "../../Input";
 
-const EmailFieldController = (props: IEmailField) => {
+const EmailfieldController = (props: IInput) => {
   const { status = "pending", value = "" } = props;
   const [form, setForm] = useState({ status, value });
 
@@ -23,7 +23,7 @@ const EmailFieldController = (props: IEmailField) => {
   };
 
   return (
-    <EmailField
+    <Input
       {...props}
       message={message}
       status={form.status}
@@ -33,4 +33,4 @@ const EmailFieldController = (props: IEmailField) => {
   );
 };
 
-export { EmailFieldController };
+export { EmailfieldController };

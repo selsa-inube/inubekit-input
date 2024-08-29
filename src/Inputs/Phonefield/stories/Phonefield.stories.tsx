@@ -1,28 +1,28 @@
 import { JSX } from "react/jsx-runtime";
-
-import { EmailfieldController } from "./Emailfield.Controller";
+import { PhonefieldController } from "./Phonefield.Controller";
 import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
+import React from "react";
 
 const story = {
-  title: "Inputs/EmailField",
-  component: EmailfieldController,
+  title: "Inputs/Phonefield",
+  component: PhonefieldController,
   argTypes: props,
   parameters,
 };
 
 const Default = (args: JSX.IntrinsicAttributes & IInput) => (
-  <EmailfieldController {...args} />
+  <PhonefieldController {...args} />
 );
 
 Default.args = {
   disabled: false,
   fullwidth: false,
-  id: "email",
-  label: "Email Address",
-  placeholder: "Enter your email address",
+  id: "Phone",
+  label: "Phone",
+  placeholder: "Enter your phone number",
   required: true,
-  type: "email",
+  type: "tel",
   size: "wide",
   status: "pending",
 };
