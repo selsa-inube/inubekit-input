@@ -1,3 +1,15 @@
+# v1.1.0 (Thu Aug 29 2024)
+
+#### 🚀 Enhancement
+
+- Create `<SearchField />` and `<PhoneField />` Components with Proper inputMode [#2](https://github.com/selsa-inube/inubekit-inputs/pull/2) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.0.0 (Tue Aug 27 2024)
 
 #### 💥 Breaking Change
