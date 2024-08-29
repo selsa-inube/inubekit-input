@@ -1,27 +1,28 @@
 import { useState } from "react";
 import { IInput, Input } from "../../Input";
+import React from "react";
 
-const MoneyfieldController = (props: IInput) => {
+const PhonefieldController = (props: IInput) => {
   const { value = "", status = "pending" } = props;
   const [form, setForm] = useState({ value, status });
 
-  const validateMoney = (amount: string) => {
-    const moneyRegex = /^\d+(\.\d{1,2})?$/;
-    return moneyRegex.test(amount);
+  const validatePhoneNumber = (phone: string) => {
+    const phoneRegex = /^(\+\d{1,3})?\d{7,14}$/;
+    return phoneRegex.test(phone);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const amount = e.target.value;
-    const isValid = validateMoney(amount);
+    const phone = e.target.value;
+    const isValid = validatePhoneNumber(phone);
     setForm({
-      value: amount,
-      status: isValid || amount === "" ? "pending" : "invalid",
+      value: phone,
+      status: isValid || phone === "" ? "pending" : "invalid",
     });
   };
 
   const message =
     form.status === "invalid"
-      ? "Please enter a valid amount (up to two decimal places)."
+      ? "Please enter a valid phone number. E.g., +1234567890 or 1234567890."
       : "";
 
   return (
@@ -35,4 +36,4 @@ const MoneyfieldController = (props: IInput) => {
   );
 };
 
-export { MoneyfieldController };
+export { PhonefieldController };

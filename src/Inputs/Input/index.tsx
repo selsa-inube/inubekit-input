@@ -15,6 +15,7 @@ import {
   StyledInputContainer,
   StyledMessageContainer,
 } from "./styles";
+import { inputConfigFactory } from "./factoryInput";
 
 interface IInput {
   disabled?: boolean;
@@ -56,7 +57,7 @@ const Input = (props: IInput) => {
     required = false,
     size = "wide",
     status = "pending",
-    type = "text",
+    type,
     value,
   } = props;
 
@@ -96,6 +97,12 @@ const Input = (props: IInput) => {
     (theme?.input?.message?.appearance as ITextAppearance) ||
     inube.input.message.appearance;
 
+  const {
+    inputMode: computedInputMode,
+    iconAfter: computedIconAfter,
+    placeholder: computedPlaceholder,
+  } = inputConfigFactory(type);
+
   return (
     <StyledContainer $disabled={disabled} $fullwidth={fullwidth} $size={size}>
       <StyledContainerLabel
@@ -133,7 +140,7 @@ const Input = (props: IInput) => {
       <StyledInputContainer
         $disabled={disabled}
         $focused={focusedState}
-        $iconAfter={iconAfter}
+        $iconAfter={computedIconAfter || iconAfter}
         $iconBefore={iconBefore}
         $status={status}
       >
@@ -149,29 +156,29 @@ const Input = (props: IInput) => {
         <StyledInput
           $focused={focusedState}
           $fullwidth={fullwidth}
-          $iconAfter={iconAfter}
+          $iconAfter={computedIconAfter || iconAfter}
           $iconBefore={iconBefore}
           $required={required}
           $size={size}
           $status={status}
           disabled={disabled}
           id={id}
-          inputMode={inputMode}
+          inputMode={computedInputMode || inputMode}
           label={label}
           name={name}
           onBlur={interceptBlur}
           onChange={interceptChange}
           onFocus={interceptFocus}
-          placeholder={placeholder}
-          type={type}
+          placeholder={computedPlaceholder || placeholder}
+          type={type === "money" ? "text" : type}
           value={value}
         />
 
-        {iconAfter && (
+        {(computedIconAfter || iconAfter) && (
           <Icon
             appearance="dark"
             disabled={disabled}
-            icon={iconAfter}
+            icon={computedIconAfter || iconAfter}
             size={size === "compact" ? "18px" : "24px"}
           />
         )}

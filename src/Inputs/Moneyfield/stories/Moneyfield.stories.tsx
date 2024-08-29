@@ -1,17 +1,16 @@
 import { JSX } from "react/jsx-runtime";
-import { IMoneyField } from "..";
 import { parameters, props } from "../../Input/props";
-import { MoneyFieldController } from "./Moneyfield.Controller";
-
+import { MoneyfieldController } from "./Moneyfield.Controller";
+import { IInput } from "../../Input";
 const story = {
   title: "Inputs/MoneyField",
-  component: MoneyFieldController,
+  component: MoneyfieldController,
   argTypes: props,
   parameters,
 };
 
-const Default = (args: JSX.IntrinsicAttributes & IMoneyField) => (
-  <MoneyFieldController {...args} />
+const Default = (args: JSX.IntrinsicAttributes & IInput) => (
+  <MoneyfieldController {...args} />
 );
 
 Default.args = {
@@ -21,6 +20,7 @@ Default.args = {
   label: "Amount",
   placeholder: "Enter amount",
   required: true,
+  type: "money",
   size: "wide",
   status: "pending",
 };

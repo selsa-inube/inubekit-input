@@ -1,8 +1,7 @@
 import { useState } from "react";
+import { IInput, Input } from "../../Input";
 
-import { INumberField, NumberField } from "..";
-
-const NumberFieldController = (props: INumberField) => {
+const NumberfieldController = (props: IInput) => {
   const { value = "", status = "pending" } = props;
   const [form, setForm] = useState({ value, status });
 
@@ -24,7 +23,7 @@ const NumberFieldController = (props: INumberField) => {
     form.status === "invalid" ? "Please enter a valid number." : "";
 
   return (
-    <NumberField
+    <Input
       {...props}
       value={form.value}
       onChange={onChange}
@@ -34,4 +33,4 @@ const NumberFieldController = (props: INumberField) => {
   );
 };
 
-export { NumberFieldController };
+export { NumberfieldController };
