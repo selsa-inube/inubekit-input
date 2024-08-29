@@ -2,7 +2,6 @@ import { JSX } from "react/jsx-runtime";
 import { TextfieldController } from "./Textfield.Controller";
 import { parameters, props } from "../../Input/props";
 import { IInput } from "../../Input";
-import React from "react";
 
 const story = {
   title: "Inputs/Textfield",
