@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { IInput, Input } from "../../Input";
-import React from "react";
+import { IInput } from "../../Input";
+import { Phonefield } from "..";
 
 const PhonefieldController = (props: IInput) => {
-  const { value = "", status = "pending" } = props;
+  const { value = "", status = "pending", ...rest } = props;
   const [form, setForm] = useState({ value, status });
 
   const validatePhoneNumber = (phone: string) => {
@@ -26,12 +26,12 @@ const PhonefieldController = (props: IInput) => {
       : "";
 
   return (
-    <Input
-      {...props}
+    <Phonefield
+      {...rest}
       value={form.value}
-      onChange={onChange}
       status={form.status}
       message={message}
+      onChange={onChange}
     />
   );
 };

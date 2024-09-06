@@ -1,36 +1,38 @@
 import { useState } from "react";
-import { IInput, Input } from "../../Input";
+import { IInput } from "../../Input";
+import { Moneyfield } from "..";
 
 const MoneyfieldController = (props: IInput) => {
-  const { value = "", status = "pending" } = props;
-  const [form, setForm] = useState({ value, status });
+  const { value = "", status = "pending", ...rest } = props;
+  const [form, setForm] = useState({
+    rawValue: value,
+    status,
+  });
 
   const validateMoney = (amount: string) => {
-    const moneyRegex = /^\d+(\.\d{1,2})?$/;
-    return moneyRegex.test(amount);
+    return /^\d+$/.test(amount);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const amount = e.target.value;
-    const isValid = validateMoney(amount);
+    const rawAmount = e.target.value.replace(/[^0-9]/g, "");
+    const isValid = validateMoney(rawAmount);
+
     setForm({
-      value: amount,
-      status: isValid || amount === "" ? "pending" : "invalid",
+      rawValue: rawAmount,
+      status: isValid || rawAmount === "" ? "pending" : "invalid",
     });
   };
 
   const message =
-    form.status === "invalid"
-      ? "Please enter a valid amount (up to two decimal places)."
-      : "";
+    form.status === "invalid" ? "Please enter a valid amount." : "";
 
   return (
-    <Input
-      {...props}
-      value={form.value}
-      onChange={onChange}
+    <Moneyfield
+      {...rest}
+      value={form.rawValue}
       status={form.status}
       message={message}
+      onChange={onChange}
     />
   );
 };
