@@ -23,6 +23,7 @@ Default.args = {
   type: "money",
   size: "wide",
   status: "pending",
+  value: "",
 };
 
 export { Default };

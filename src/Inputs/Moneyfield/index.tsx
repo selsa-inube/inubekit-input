@@ -1,9 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { IInput } from "../Input";
 import { InputUI } from "../Input/interface";
 
 const Moneyfield = (props: IInput) => {
-  const { iconAfter = <MdOutlineAttachMoney />, onChange, ...rest } = props;
+  const {
+    value = "",
+    iconAfter = <MdOutlineAttachMoney />,
+    onChange,
+    ...rest
+  } = props;
   const formatMoney = (amount: string) => {
     if (!amount) return "";
 
