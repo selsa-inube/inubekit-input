@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { IInput, Input } from "../../Input";
+import { IInput } from "../../Input";
+import { Numberfield } from "..";
 
 const NumberfieldController = (props: IInput) => {
-  const { value = "", status = "pending" } = props;
+  const { value = "", status = "pending", ...rest } = props;
   const [form, setForm] = useState({ value, status });
 
   const validateNumber = (number: string) => {
@@ -23,12 +24,12 @@ const NumberfieldController = (props: IInput) => {
     form.status === "invalid" ? "Please enter a valid number." : "";
 
   return (
-    <Input
-      {...props}
+    <Numberfield
+      {...rest}
       value={form.value}
-      onChange={onChange}
       status={form.status}
       message={message}
+      onChange={onChange}
     />
   );
 };

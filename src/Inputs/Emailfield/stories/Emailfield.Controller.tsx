@@ -1,33 +1,29 @@
 import { useState } from "react";
-import { IInput, Input } from "../../Input";
+import { IInput } from "../../Input";
+import { Emailfield } from "..";
 
 const EmailfieldController = (props: IInput) => {
-  const { status = "pending", value = "" } = props;
-  const [form, setForm] = useState({ status, value });
-
-  const message =
-    form.status === "invalid" ? "Please enter a valid email address." : "";
+  const { value = "", status = "pending", ...rest } = props;
+  const [form, setForm] = useState({ value, status });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
-    const isValid = validateEmail(email);
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     setForm({
-      status: isValid || email === "" ? "pending" : "invalid",
       value: email,
+      status: isValid || email === "" ? "pending" : "invalid",
     });
   };
 
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  const message =
+    form.status === "invalid" ? "Please enter a valid email." : "";
 
   return (
-    <Input
-      {...props}
-      message={message}
-      status={form.status}
+    <Emailfield
+      {...rest}
       value={form.value}
+      status={form.status}
+      message={message}
       onChange={onChange}
     />
   );

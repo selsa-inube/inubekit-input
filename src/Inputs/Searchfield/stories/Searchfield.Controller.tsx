@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { IInput, Input } from "../../Input";
-import React from "react";
+import { Searchfield } from "..";
+import { IInput } from "../../Input";
 
 const SearchfieldController = (props: IInput) => {
-  const { value = "", status = "pending" } = props;
+  const { value = "", status = "pending", ...rest } = props;
   const [form, setForm] = useState({ value, status });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,11 +15,11 @@ const SearchfieldController = (props: IInput) => {
   };
 
   return (
-    <Input
-      {...props}
+    <Searchfield
+      {...rest}
       value={form.value}
-      onChange={onChange}
       status={form.status}
+      onChange={onChange}
     />
   );
 };
