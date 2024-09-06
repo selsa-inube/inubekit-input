@@ -6,42 +6,21 @@ const MoneyfieldController = (props: IInput) => {
   const { value = "", status = "pending", ...rest } = props;
   const [form, setForm] = useState({
     rawValue: value,
-    formattedValue: value,
     status,
   });
 
-  const formatMoney = (amount: string) => {
-    const formatter = new Intl.NumberFormat("es-CO", {
-      style: "currency",
-      currency: "COP",
-      minimumFractionDigits: 2,
-    });
-    return formatter.format(parseFloat(amount || "0"));
+  const validateMoney = (amount: string) => {
+    return /^\d+$/.test(amount);
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawAmount = e.target.value.replace(/[^0-9.]/g, "");
-    const isValid = /^\d+(\.\d{1,2})?$/.test(rawAmount);
+    const rawAmount = e.target.value.replace(/[^0-9]/g, "");
+    const isValid = validateMoney(rawAmount);
+
     setForm({
       rawValue: rawAmount,
-      formattedValue: rawAmount,
       status: isValid || rawAmount === "" ? "pending" : "invalid",
     });
-  };
-
-  const onBlur = () => {
-    const formattedAmount = formatMoney(String(form.rawValue));
-    setForm((prev) => ({
-      ...prev,
-      formattedValue: formattedAmount,
-    }));
-  };
-
-  const onFocus = () => {
-    setForm((prev) => ({
-      ...prev,
-      formattedValue: form.rawValue,
-    }));
   };
 
   const message =
@@ -50,12 +29,10 @@ const MoneyfieldController = (props: IInput) => {
   return (
     <Moneyfield
       {...rest}
-      value={form.formattedValue}
+      value={form.rawValue}
       status={form.status}
       message={message}
       onChange={onChange}
-      onBlur={onBlur}
-      onFocus={onFocus}
     />
   );
 };

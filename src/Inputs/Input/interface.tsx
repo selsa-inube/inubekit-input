@@ -30,6 +30,7 @@ const InputUI = (props: IInput) => {
     onBlur,
     onChange,
     onFocus,
+    onKeyUp,
     placeholder,
     required = false,
     size = "wide",
@@ -61,6 +62,14 @@ const InputUI = (props: IInput) => {
     setFocused(true);
     try {
       onFocus && onFocus(e);
+    } catch (error) {
+      console.error(`Error executing focus callback. ${error}`);
+    }
+  };
+
+  const interceptKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    try {
+      onKeyUp && onKeyUp(e);
     } catch (error) {
       console.error(`Error executing focus callback. ${error}`);
     }
@@ -140,6 +149,7 @@ const InputUI = (props: IInput) => {
           onBlur={interceptBlur}
           onChange={interceptChange}
           onFocus={interceptFocus}
+          onKeyUp={interceptKeyUp}
           placeholder={placeholder}
           type={type}
           value={value}
