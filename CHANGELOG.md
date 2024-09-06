@@ -1,3 +1,15 @@
+# v1.2.1 (Fri Sep 06 2024)
+
+#### ⚠️ Pushed to `main`
+
+- fix: add readonly prop ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.2.0 (Fri Sep 06 2024)
 
 #### 🚀 Enhancement
