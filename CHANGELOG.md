@@ -1,3 +1,15 @@
+# v1.2.2 (Fri Sep 06 2024)
+
+#### ⚠️ Pushed to `main`
+
+- fix: added export of the components ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.2.1 (Fri Sep 06 2024)
 
 #### ⚠️ Pushed to `main`
