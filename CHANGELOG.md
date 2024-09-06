@@ -1,3 +1,15 @@
+# v1.2.0 (Fri Sep 06 2024)
+
+#### 🚀 Enhancement
+
+- Refactor `<Input />` Component to Support Extensible Input Types [#3](https://github.com/selsa-inube/inubekit-inputs/pull/3) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.1.0 (Thu Aug 29 2024)
 
 #### 🚀 Enhancement
