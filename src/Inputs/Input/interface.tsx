@@ -36,6 +36,7 @@ const InputUI = (props: IInput) => {
     size = "wide",
     status = "pending",
     type,
+    readOnly = false,
     value,
   } = props;
 
@@ -59,7 +60,9 @@ const InputUI = (props: IInput) => {
   };
 
   const interceptFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFocused(true);
+    if (!readOnly) {
+      setFocused(true);
+    }
     try {
       onFocus && onFocus(e);
     } catch (error) {
@@ -123,6 +126,7 @@ const InputUI = (props: IInput) => {
         $iconAfter={iconAfter}
         $iconBefore={iconBefore}
         $status={status}
+        readOnly={readOnly}
       >
         {iconBefore && (
           <Icon
@@ -153,6 +157,7 @@ const InputUI = (props: IInput) => {
           placeholder={placeholder}
           type={type}
           value={value}
+          readOnly={readOnly}
         />
 
         {iconAfter && (

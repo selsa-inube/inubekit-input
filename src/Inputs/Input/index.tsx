@@ -27,6 +27,7 @@ interface IInput {
   status?: IInputStatus;
   type?: IInputInputType;
   value?: string | number;
+  readOnly?: boolean;
 }
 
 const inputComponents: Record<string, React.ComponentType<IInput>> = {
