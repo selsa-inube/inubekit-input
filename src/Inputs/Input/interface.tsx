@@ -1,6 +1,6 @@
 import { Icon } from "@inubekit/icon";
 import { Label } from "@inubekit/label";
-import { inube } from "../Tokens";
+import { tokens } from "../Tokens/tokens";
 import { ITextAppearance, Text } from "@inubekit/text";
 import { Stack } from "@inubekit/stack";
 import { MdOutlineWarning } from "react-icons/md";
@@ -105,13 +105,13 @@ const InputUI = (props: IInput) => {
     }
   };
 
-  const theme: typeof inube = useContext(ThemeContext);
+  const theme = useContext(ThemeContext) as { input: typeof tokens };
   const requiredAppearance =
     (theme?.input?.required?.appearance as ITextAppearance) ||
-    inube.input.required.appearance;
+    tokens.required.appearance;
   const messageAppearance =
     (theme?.input?.message?.appearance as ITextAppearance) ||
-    inube.input.message.appearance;
+    tokens.message.appearance;
 
   const currentLength = value ? value.toString().length : 0;
 

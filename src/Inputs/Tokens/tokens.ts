@@ -1,6 +1,6 @@
 import { inube } from "@inubekit/foundations";
 
-const input = {
+const tokens = {
   border: {
     color: {
       regular: inube.palette.neutral.N40,
@@ -44,4 +44,4 @@ const input = {
   },
 };
 
-export { input };
+export { tokens };

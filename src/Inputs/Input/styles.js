@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { inube } from "../Tokens";
+import { tokens } from "../Tokens/tokens";
+import { inube } from "@inubekit/foundations";
 
 const StyledContainer = styled.div`
   cursor: ${({ $disabled }) => $disabled && "not-allowed"};
@@ -26,7 +27,7 @@ const StyledInputContainer = styled.div`
   background-color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.background?.color?.disabled
-      : inube.input.background.color.default};
+      : tokens.background.color.default};
   grid-template-columns: ${({ $iconBefore, $iconAfter }) => {
     if ($iconBefore && $iconAfter) {
       return "auto 1fr auto";
@@ -46,25 +47,21 @@ const StyledInputContainer = styled.div`
     ${({ $disabled, $status, $focused, theme }) => {
       if ($disabled) {
         return (
-          theme?.input?.border?.color?.disabled ||
-          inube.input.border.color.disabled
+          theme?.input?.border?.color?.disabled || tokens.border.color.disabled
         );
       }
 
       if ($status === "invalid") {
         return (
-          theme?.input?.border?.color?.invalid ||
-          inube.input.border.color.invalid
+          theme?.input?.border?.color?.invalid || tokens.border.color.invalid
         );
       }
 
       if ($focused) {
-        return (
-          theme?.input?.border?.color?.focus || inube.input.border.color.focus
-        );
+        return theme?.input?.border?.color?.focus || tokens.border.color.focus;
       }
       return (
-        theme?.input?.border?.color?.regular || inube.input.border.color.regular
+        theme?.input?.border?.color?.regular || tokens.border.color.regular
       );
     }};
 `;
@@ -81,13 +78,11 @@ const StyledInput = styled.input`
   background-color: ${({ $disabled, theme }) =>
     $disabled
       ? theme?.input?.background?.color?.disabled
-      : inube.input.background.color.default};
+      : tokens.background.color.default};
   color: ${({ $disabled, theme }) =>
     $disabled
-      ? theme?.input?.content?.color?.disabled ||
-        inube.input.content.color.disabled
-      : theme?.input?.content?.color?.regular ||
-        inube.input.content.color.regular};
+      ? theme?.input?.content?.color?.disabled || tokens.content.color.disabled
+      : theme?.input?.content?.color?.regular || tokens.content.color.regular};
 
   width: ${({ $fullwidth }) => $fullwidth && "100%"};
   height: ${({ $size }) => ($size === "compact" ? "40px" : "48px")};
@@ -101,7 +96,7 @@ const StyledInput = styled.input`
   ::placeholder {
     color: ${({ theme }) =>
       theme?.input?.placeholder?.color?.regular ||
-      inube.input.placeholder.color.regular};
+      tokens.placeholder.color.regular};
   }
 
   &:focus {
