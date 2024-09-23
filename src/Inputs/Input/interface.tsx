@@ -38,6 +38,8 @@ const InputUI = (props: IInput) => {
     type,
     readOnly = false,
     value,
+    maxLength,
+    minLength,
   } = props;
 
   const [focusedState, setFocused] = useState(false);
@@ -158,6 +160,8 @@ const InputUI = (props: IInput) => {
           type={type}
           value={value}
           readOnly={readOnly}
+          maxLength={maxLength}
+          minLength={minLength}
         />
 
         {iconAfter && (
