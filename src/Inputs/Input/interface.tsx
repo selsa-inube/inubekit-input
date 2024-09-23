@@ -1,6 +1,6 @@
 import { Icon } from "@inubekit/icon";
 import { Label } from "@inubekit/label";
-import { inube } from "@inubekit/foundations";
+import { inube } from "../Tokens";
 import { ITextAppearance, Text } from "@inubekit/text";
 import { Stack } from "@inubekit/stack";
 import { MdOutlineWarning } from "react-icons/md";
