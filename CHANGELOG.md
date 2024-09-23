@@ -1,3 +1,15 @@
+# v1.5.1 (Mon Sep 23 2024)
+
+#### ⚠️ Pushed to `main`
+
+- feat(Input): move input tokens from foundations to component ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.5.0 (Mon Sep 23 2024)
 
 #### 🚀 Enhancement
