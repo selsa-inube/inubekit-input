@@ -1,3 +1,15 @@
+# v1.5.0 (Mon Sep 23 2024)
+
+#### 🚀 Enhancement
+
+- Move input tokens from foundations to the Input component [#6](https://github.com/selsa-inube/inubekit-inputs/pull/6) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.4.0 (Mon Sep 23 2024)
 
 #### 🚀 Enhancement
