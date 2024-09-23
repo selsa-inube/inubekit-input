@@ -1,3 +1,15 @@
+# v1.4.0 (Mon Sep 23 2024)
+
+#### 🚀 Enhancement
+
+- Extend component to support counter prop [#5](https://github.com/selsa-inube/inubekit-inputs/pull/5) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.3.0 (Mon Sep 23 2024)
 
 #### 🚀 Enhancement
