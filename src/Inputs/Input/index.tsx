@@ -28,6 +28,8 @@ interface IInput {
   type?: IInputInputType;
   value?: string | number;
   readOnly?: boolean;
+  maxLength?: number;
+  minLength?: number;
 }
 
 const inputComponents: Record<string, React.ComponentType<IInput>> = {
