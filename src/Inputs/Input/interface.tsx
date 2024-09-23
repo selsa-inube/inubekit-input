@@ -15,6 +15,30 @@ import {
   StyledMessageContainer,
 } from "./styles";
 import { IInput } from ".";
+import { ICounter } from "./props";
+
+const getCounterAppearance = (
+  maxLength: number | undefined,
+  valueLength: number,
+) => {
+  if (!maxLength) return "gray";
+  const lengthThreshold = Math.floor(maxLength * 0.1);
+  if (maxLength - valueLength <= lengthThreshold && valueLength <= maxLength) {
+    return "warning";
+  } else if (valueLength > maxLength) {
+    return "danger";
+  }
+  return "gray";
+};
+
+const Counter = ({ maxLength, currentLength }: ICounter) => {
+  const appearance = getCounterAppearance(maxLength, currentLength);
+  return (
+    <Text type="body" size="small" appearance={appearance} textAlign="start">
+      {maxLength ? `${currentLength}/${maxLength}` : `${currentLength}`}
+    </Text>
+  );
+};
 
 const InputUI = (props: IInput) => {
   const {
@@ -40,6 +64,7 @@ const InputUI = (props: IInput) => {
     value,
     maxLength,
     minLength,
+    counter = false,
   } = props;
 
   const [focusedState, setFocused] = useState(false);
@@ -88,6 +113,8 @@ const InputUI = (props: IInput) => {
     (theme?.input?.message?.appearance as ITextAppearance) ||
     inube.input.message.appearance;
 
+  const currentLength = value ? value.toString().length : 0;
+
   return (
     <StyledContainer $disabled={disabled} $fullwidth={fullwidth} $size={size}>
       <StyledContainerLabel
@@ -119,6 +146,11 @@ const InputUI = (props: IInput) => {
           >
             (Requerido)
           </Text>
+        )}
+        {!disabled && counter && (
+          <Stack justifyContent="flex-end" alignItems="center" width="100%">
+            <Counter maxLength={maxLength} currentLength={currentLength} />
+          </Stack>
         )}
       </StyledContainerLabel>
 

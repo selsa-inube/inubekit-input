@@ -15,6 +15,11 @@ type IInputSize = (typeof sizes)[number];
 const status = ["invalid", "pending"] as const;
 type IInputStatus = (typeof status)[number];
 
+interface ICounter {
+  maxLength?: number;
+  currentLength: number;
+}
+
 const parameters = {
   docs: {
     description: {
@@ -100,4 +105,4 @@ const props = {
 };
 
 export { parameters, props };
-export type { IInputInputType, IInputSize, IInputStatus };
+export type { IInputInputType, IInputSize, IInputStatus, ICounter };
