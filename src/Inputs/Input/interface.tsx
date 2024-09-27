@@ -125,7 +125,6 @@ const InputUI = (props: IInput) => {
       >
         {label && (
           <Label
-            disabled={disabled}
             focused={focusedState}
             htmlFor={id}
             invalid={status === "invalid"}
