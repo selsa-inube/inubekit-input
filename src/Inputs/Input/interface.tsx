@@ -130,6 +130,7 @@ const InputUI = (props: IInput) => {
             invalid={status === "invalid"}
             margin="0px 0px 0px 16px"
             size={size === "compact" ? "medium" : "large"}
+            disabled={disabled}
           >
             {label}
           </Label>
