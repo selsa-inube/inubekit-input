@@ -1,3 +1,15 @@
+# v1.6.2 (Tue Oct 01 2024)
+
+#### ⚠️ Pushed to `main`
+
+- feat: export input-tokens ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v1.6.1 (Mon Sep 30 2024)
 
 #### ⚠️ Pushed to `main`
