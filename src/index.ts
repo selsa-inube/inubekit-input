@@ -1,8 +1,9 @@
-export { Input } from "./Inputs/Input";
-export { Textfield } from "./Inputs/Textfield";
-export { Emailfield } from "./Inputs/Emailfield";
-export { Phonefield } from "./Inputs/Phonefield";
-export { Numberfield } from "./Inputs/Numberfield";
-export { Moneyfield } from "./Inputs/Moneyfield";
-export { Searchfield } from "./Inputs/Searchfield";
-export type { IInput } from "./Inputs/Input";
+export { Input } from "./Input/Input";
+export { Textfield } from "./Input/Textfield";
+export { Emailfield } from "./Input/Emailfield";
+export { Phonefield } from "./Input/Phonefield";
+export { Numberfield } from "./Input/Numberfield";
+export { Moneyfield } from "./Input/Moneyfield";
+export { Searchfield } from "./Input/Searchfield";
+export type { IInput } from "./Input/Input";
+export { tokens as InputTokens } from "./Input/Tokens/tokens";
